@@ -1,5 +1,9 @@
-
-<% @client.home_timeline.first(9).each do |tweet| %>
-<!-- 画像の有無で取得情報を変更 -->
-<%= tweet.text %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+	<% @client.user_timeline.first(9).each do |tweet| %>
+		<div class="post"><%= tweet.text %><br></div>
     <% end %>
+    	</div>
+	</div>
+</div>
