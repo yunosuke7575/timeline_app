@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
 # twiiter api
 gem 'twitter'
+# instagram
+gem 'instagram',  :git => 'git://github.com/Instagram/instagram-ruby-gem.git'

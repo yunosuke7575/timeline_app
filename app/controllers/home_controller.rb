@@ -10,5 +10,6 @@ class HomeController < ApplicationController
       config.access_token        = ENV['TW_ACCESS_TOKEN']
       config.access_token_secret = ENV['TW_ACCESS_TOKEN_SECRET']
   end
+  @popular = Instagram.user_recent_media
 end
 end
