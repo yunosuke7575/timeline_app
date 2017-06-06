@@ -4,7 +4,7 @@
 	<% @client.user_timeline.first(20).each do |tweet| %>
 		<div class="post">
 		<% if tweet.media[0] %>
-		<%= image_tag(tweet.media[0].media_url, class:"img-circle img-responsive center-block") %><br>
+		<%= image_tag(tweet.media[0].media_url, class:"img-responsive center-block") %><br>
 		<%= tweet.text %><br>
 		<% else %>
 		<%= tweet.text %>
@@ -14,3 +14,4 @@
     	</div>
 	</div>
 </div>
+
