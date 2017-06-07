@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 	<% @client.user_timeline.first(20).each do |tweet| %>
-		<div class="post">
+		<div class="thumbnail">
 		<% if tweet.media[0] %>
 		<%= image_tag(tweet.media[0].media_url, class:"img-responsive center-block") %><br>
 		<%= tweet.text %><br>
@@ -15,7 +15,6 @@
 	</div>
 </div>
 
-<h1>Instagram Lookup</h1>
   <% @popular.each do |popular| %>
   <div class="col-sm-12 col-md-4">
     <div class="thumbnail">
