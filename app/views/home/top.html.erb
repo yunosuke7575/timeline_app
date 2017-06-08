@@ -1,27 +1,21 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12">
-	<% @client.user_timeline.first(20).each do |tweet| %>
-		<div class="thumbnail">
-		<% if tweet.media[0] %>
-		<%= image_tag(tweet.media[0].media_url, class:"img-responsive center-block") %><br>
-		<%= tweet.text %><br>
-		<% else %>
-		<%= tweet.text %>
+		<div class="col-sm-12">
+		<% @posts.each do |post| %>
+				<div class="thumbnail">
+			<% if post.text == nil %>
+				<%= image_tag post.images.low_resolution.url %>
+				<div class="caption">
+				<%= post.caption.text %><br>
+				</div>
+			<% elsif post.media[0] %>
+				<%= image_tag(post.media[0].media_url, class:"img-responsive center-block") %><br>
+				<%= post.text %>
+			<% else %>
+				<%= post.text %>
+			<% end %>
+				</div>
 		<% end %>
 		</div>
-    <% end %>
-    	</div>
 	</div>
 </div>
-
-  <% @popular.each do |popular| %>
-  <div class="col-sm-12 col-md-4">
-    <div class="thumbnail">
-      <%= image_tag popular.images.low_resolution.url %>
-      <div class="caption">
-        <%= popular.caption.text %>
-      </div>
-    </div>
-  </div>
-<% end %>

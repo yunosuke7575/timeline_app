@@ -10,6 +10,8 @@ class HomeController < ApplicationController
       config.access_token        = ENV['TW_ACCESS_TOKEN']
       config.access_token_secret = ENV['TW_ACCESS_TOKEN_SECRET']
   end
+  @client = @client.user_timeline.first(20)
   @popular = Instagram.user_recent_media
+  @posts = @client + @popular
 end
 end
