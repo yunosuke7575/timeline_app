@@ -3,6 +3,9 @@
 		<div class="col-sm-12">
 		<% @posts.each do |post| %>
 				<div class="thumbnail">
+				<div class="text-right">
+				<%= link_to 'お気に入り', '#' %>
+				</div>
 			<% if post.text == nil %>
 				<%= image_tag post.images.low_resolution.url %>
 				<div class="caption">
