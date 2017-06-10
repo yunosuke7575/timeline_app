@@ -6,16 +6,20 @@
 			<% if post.text == nil %>
 				<%= image_tag post.images.low_resolution.url %>
 				<div class="caption">
-				<%= post.caption.text %><br>
+				<%= post.caption.text %>
+				<%= post.created_at %>
+				<br>
 				</div>
 			<% elsif post.media[0] %>
 				<%= image_tag(post.media[0].media_url, class:"img-responsive center-block") %><br>
 				<%= post.text %>
 			<% else %>
 				<%= post.text %>
+				<%= post.created_at %>
 			<% end %>
 				</div>
 		<% end %>
 		</div>
 	</div>
 </div>
+
