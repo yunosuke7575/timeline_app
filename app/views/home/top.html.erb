@@ -5,7 +5,7 @@
 				<div class="thumbnail">
 			<% if post.text == nil %>
 				<div>
-				<span style="float: right;" class="favorite"><%= 'お気に入り' %></span>
+				<span style="float: right;" class="favorite" id ="<%= post.id %>" ><%= 'お気に入り' %></span>
 				<span style="float: left;"><%= post.created_at.strftime("%Y年%m月%d日") %></span>
 				</div>
 					<%= image_tag post.images.low_resolution.url %>
@@ -14,14 +14,14 @@
 				</div>
 			<% elsif post.media[0] %>
 				<div>
-				<span style="float: right;" class="favorite"><%= 'お気に入り' %></span>
+				<span style="float: right;" class="favorite" id="<%= post.id %>"><%= 'お気に入り' %></span>
 				<span style="float: left;"><%= post.created_at.strftime("%Y年%m月%d日") %></span>
 				</div>
 				<%= image_tag(post.media[0].media_url, class:"img-responsive center-block") %><br>
 				<%= post.text %>
 			<% else %>
 				<div>
-				<span style="float: right;" class="favorite"><%= 'お気に入り' %></span>
+				<span style="float: right;" class="favorite" id="<%= post.id %>"><%= 'お気に入り' %></span>
 				<span style="float: left;"><%= post.created_at.strftime("%Y年%m月%d日") %></span>
 				</div>
 				<br>
@@ -38,15 +38,20 @@
 <script>
 jQuery(function ($) {
     $('.favorite').click(function () {
-        var liked = Cookies.set('liked','on');
-        if (liked != null) {
-            Cookies.remove('liked','on');
+        var lid = this.id,
+            cookie = Cookies.set('liked' + lid);
+        if (cookie == 1) {
+            Cookies.remove('liked' + lid)
         } else {
-            Cookies.set('liked', 'on', {
-                expires: 30,
+            Cookies.set('liked' + lid, 1, {
+                expires: 30
             });
         }
-        $(this).text($(this).text() == 'お気に入り解除' ? 'お気に入り' : 'お気に入り解除');
+        $(this).html($(this).text() == 'お気に入り解除' ? 'お気に入り' : 'お気に入り解除');
+    }).each(function () {
+        if (Cookies.set('liked' + this.id) == 1) {
+            $(this).text('お気に入り解除')
+        }　
     })
 })
 </script>
