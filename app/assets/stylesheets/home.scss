@@ -2,3 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.favorite {
+	color:#808080;
+	display: inline-flex;
+}
+
+.favorite:before { 
+	content:url(/images/unstar-16.jpg); 
+	padding-right: 2px;
+	padding-top: 1px;
+}
+
+.favorite:hover {
+	text-decoration: underline;
+}
+
+
+.added {
+	color:black;
+	display: inline-flex;
+}
+
+.added:before { 
+	content:url(/images/star-16.jpg);
+	padding-right: 2px;
+	padding-top: 1px; 
+}
+
+
+.added:hover {
+	text-decoration: underline;
+}

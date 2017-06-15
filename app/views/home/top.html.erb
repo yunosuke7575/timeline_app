@@ -47,10 +47,11 @@ jQuery(function ($) {
                 expires: 30
             });
         }
-        $(this).html($(this).text() == 'お気に入り解除' ? 'お気に入り' : 'お気に入り解除');
+        $(this).toggleClass('added');
+        $(this).html($(this).text() == 'お気に入り' ? 'お気に入り' : 'お気に入り');
     }).each(function () {
         if (Cookies.set('liked' + this.id) == 1) {
-            $(this).text('お気に入り解除')
+            $(this).addClass('added').text('お気に入り')
         }　
     })
 })
