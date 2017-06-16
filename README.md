@@ -1,4 +1,8 @@
 # ALL IN ONE 
 
 ##  Overview
-TwitterとInstagramの自分の投稿タイムラインを、一つのタイムラインにまとめた
+
+* Twitter及びInstagramのAPIを使用し、自分の投稿データを取得
+
+* それらを一つのタイムラインにまとめ、時系列に表示したアプリケーション
+
